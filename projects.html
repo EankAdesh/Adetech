@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Projects | GlobalTech Solution</title>
+<link rel="icon" href="A1.png" type="image/png" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+<style>
+:root {
+  --bg: #0f172a;          /* Dark navy background */
+  --text: #ffffff;        /* White text */
+  --accent: #facc15;      /* Golden accent */
+  --muted: #94a3b8;       /* Muted gray */
+  --card-bg: rgba(255, 255, 255, 0.08);
+}
+
+/* GLOBAL RESET */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* HEADER (Same as Skills Page) */
+header {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 1px;
+}
+nav {
+  display: flex;
+  gap: 1.5rem;
+}
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  transition: color 0.3s ease;
+}
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: var(--accent);
+  transition: width 0.3s;
+}
+nav a:hover,
+nav a.active {
+  color: var(--accent);
+}
+nav a:hover::after,
+nav a.active::after {
+  width: 100%;
+}
+
+/* MAIN CONTENT */
+.wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+h2 {
+  text-align: center;
+  color: var(--accent);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* PROJECTS GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.8rem;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.12);
+}
+.project-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 3px solid var(--accent);
+}
+.card-content {
+  padding: 1.5rem;
+}
+.card-content h3 {
+  color: var(--accent);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.card-content p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: 600;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+.btn:hover {
+  background: #fde047;
+  transform: scale(1.05);
+}
+
+/* LIGHTBOX */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+.lightbox.active {
+  opacity: 1;
+  visibility: visible;
+}
+.lightbox img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 10px;
+  border: 3px solid var(--accent);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+}
+.close-btn {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  color: var(--accent);
+  font-size: 2rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  h2 {
+    font-size: 1.6rem;
+  }
+}
+</style>
+</head>
+
+<body>
+  <header>
+    <h1>GlobalTech Solution</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="skills.html">Skills</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="wrap" data-aos="fade-up">
+    <h2>Projects & Case Studies</h2>
+    <section class="grid">
+      <!-- Project 1 -->
+      <article class="card" data-aos="fade-up">
+        <img src="poster.jpg" alt="Posters Project" class="project-img" />
+        <div class="card-content">
+          <h3>Posters</h3>
+          <p>Creative and modern posters designed for branding, events, and promotions using professional design tools.</p>
+          <button class="btn" onclick="openLightbox('poster.jpg')">View Project</button>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="card" data-aos="fade-up" data-aos-delay="100">
+        <img src="database.jpg" alt="Database System Project" class="project-img" />
+        <div class="card-content">
+          <h3>Database System</h3>
+          <p>Secure database solutions with role-based access, smart data management, and user-friendly dashboards.</p>
+          <button class="btn" onclick="openLightbox('database.jpg')">View Project</button>
+        </div>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="card" data-aos="fade-up" data-aos-delay="200">
+        <img src="website.jpg" alt="Website Project" class="project-img" />
+        <div class="card-content">
+          <h3>Website Development</h3>
+          <p>Responsive and visually appealing websites built using HTML, CSS, and JavaScript for professional clients.</p>
+          <button class="btn" onclick="openLightbox('website.jpg')">View Project</button>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> GlobalTech Solution — All Rights Reserved.</p>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <span class="close-btn" onclick="closeLightbox()">&times;</span>
+    <img id="lightbox-img" src="" alt="Project Preview" />
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function openLightbox(imageSrc) {
+      const lightbox = document.getElementById("lightbox");
+      const img = document.getElementById("lightbox-img");
+      img.src = imageSrc;
+      lightbox.classList.add("active");
+    }
+
+    function closeLightbox() {
+      document.getElementById("lightbox").classList.remove("active");
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Skills | GlobalTech Solution</title>
+<link rel="icon" href="A1.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<style>
+:root {
+  --bg: #0f172a;        /* Dark navy background */
+  --text: #ffffff;      /* White text */
+  --accent: #facc15;    /* Golden accent */
+  --muted: #94a3b8;     /* Muted gray */
+  --card-bg: rgba(255, 255, 255, 0.08);
+}
+
+/* GLOBAL */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER (Matches Contact Page) */
+header {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 1px;
+}
+nav {
+  display: flex;
+  gap: 1.5rem;
+}
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  transition: color 0.3s ease;
+}
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: var(--accent);
+  transition: width 0.3s;
+}
+nav a:hover,
+nav a.active {
+  color: var(--accent);
+}
+nav a:hover::after,
+nav a.active::after {
+  width: 100%;
+}
+
+/* MAIN */
+main {
+  flex: 1;
+  padding: 3rem 2rem;
+}
+h2 {
+  text-align: center;
+  color: var(--accent);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* SKILLS GRID */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.8rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.skill-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+.skill-card:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.12);
+}
+.skill-card i {
+  font-size: 2.5rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+.skill-name {
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 0.4rem;
+}
+.skill-desc {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+/* Progress Bar */
+.progress-bar {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  overflow: hidden;
+  height: 8px;
+}
+.progress {
+  height: 8px;
+  border-radius: 10px;
+  background: var(--accent);
+  width: 0;
+  transition: width 1.5s ease-in-out;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  h2 {
+    font-size: 1.6rem;
+  }
+  .skill-card {
+    padding: 1.2rem;
+  }
+}
+</style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <h1>GlobalTech Solution</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="skills.html" class="active">Skills</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Skills Section -->
+  <main>
+    <h2 data-aos="fade-up">My Professional Skills</h2>
+    <section class="skills-grid" data-aos="fade-up">
+      <div class="skill-card" data-level="95">
+        <i class="fa-solid fa-desktop"></i>
+        <div class="skill-name">Modern Computer Packages</div>
+        <div class="skill-desc">Expert in Word, Excel, PowerPoint, and Publisher for professional tasks.</div>
+        <div class="progress-bar"><div class="progress"></div></div>
+      </div>
+
+      <div class="skill-card" data-level="90">
+        <i class="fa-solid fa-code"></i>
+        <div class="skill-name">Web Development</div>
+        <div class="skill-desc">HTML, CSS, and responsive layouts for modern, mobile-friendly websites.</div>
+        <div class="progress-bar"><div class="progress"></div></div>
+      </div>
+
+      <div class="skill-card" data-level="80">
+        <i class="fa-brands fa-js"></i>
+        <div class="skill-name">JavaScript</div>
+        <div class="skill-desc">Interactive UI design using ES6+, DOM manipulation, and animations.</div>
+        <div class="progress-bar"><div class="progress"></div></div>
+      </div>
+
+      <div class="skill-card" data-level="90">
+        <i class="fa-solid fa-pen-nib"></i>
+        <div class="skill-name">Graphic Design</div>
+        <div class="skill-desc">Creative posters, branding, and social media content using Canva & Photoshop.</div>
+        <div class="progress-bar"><div class="progress"></div></div>
+      </div>
+
+      <div class="skill-card" data-level="85">
+        <i class="fa-solid fa-database"></i>
+        <div class="skill-name">Database Development</div>
+        <div class="skill-desc">Designing secure databases using SQL and MySQL integration.</div>
+        <div class="progress-bar"><div class="progress"></div></div>
+      </div>
+
+      <div class="skill-card" data-level="75">
+        <i class="fa-solid fa-gears"></i>
+        <div class="skill-name">Tech Consulting</div>
+        <div class="skill-desc">Providing professional IT advice and digital transformation solutions.</div>
+        <div class="progress-bar"><div class="progress"></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> GlobalTech Solution — All Rights Reserved.</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Animate progress bars when loaded
+    window.addEventListener('load', () => {
+      document.querySelectorAll('.skill-card').forEach(card => {
+        const level = card.getAttribute('data-level');
+        const progress = card.querySelector('.progress');
+        progress.style.width = level + '%';
+      });
+    });
+  </script>
+</body>
+</html>
