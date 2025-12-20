@@ -56,23 +56,80 @@ h2 { text-align: center; color: var(--accent); font-size: 2rem; margin-bottom: 3
 .btn { display: inline-block; padding: 0.6rem 1.2rem; background: var(--accent); color: var(--bg); font-weight: 600; border-radius: 25px; text-decoration: none; transition: background 0.3s ease, transform 0.2s ease; cursor: pointer; }
 .btn:hover { background: #fde047; transform: scale(1.05); }
 
-/* Lightbox */
-.lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.8); display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: opacity 0.3s ease; z-index:1000; }
+/* Lightbox Modern Style */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+  flex-direction: column;
+}
 .lightbox.active { opacity: 1; visibility: visible; }
-.lightbox img { max-width: 90%; max-height: 80%; border-radius: 10px; border: 3px solid var(--accent); box-shadow: 0 0 30px rgba(0,0,0,0.6); }
-.close-btn { position: absolute; top: 30px; right: 40px; color: var(--accent); font-size: 2rem; cursor: pointer; font-weight: bold; }
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 12px;
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 40px rgba(0,0,0,0.8);
+  transition: transform 0.3s ease;
+}
+.lightbox img:hover { transform: scale(1.02); }
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: var(--accent);
+  font-size: 2.5rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+.close-btn:hover { color: #fde047; }
+
+#prev-btn, #next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.5rem;
+  color: var(--accent);
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s;
+}
+#prev-btn:hover, #next-btn:hover { color: #fde047; }
+#prev-btn { left: 15px; }
+#next-btn { right: 15px; }
+
+.lightbox-counter {
+  color: var(--accent);
+  font-weight: 600;
+  margin-top: 12px;
+  font-size: 0.95rem;
+}
 
 /* Footer */
 footer { text-align: center; padding: 2rem 0; color: var(--muted); font-size: 0.9rem; }
 
 /* Responsive */
-@media (max-width: 900px) { .project { flex-direction: column; } .project:nth-child(even) { flex-direction: column; } .project-content { padding: 1.5rem 0; } }
+@media (max-width: 900px) {
+  .project { flex-direction: column; }
+  .project:nth-child(even) { flex-direction: column; }
+  .project-content { padding: 1.5rem 0; }
+}
 </style>
 </head>
 
 <body>
 <header>
-  <h1>GlobalTech Solution</h1>
+  <h1>Adetech Solution</h1>
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -85,27 +142,47 @@ footer { text-align: center; padding: 2rem 0; color: var(--muted); font-size: 0.
 <main class="wrap" data-aos="fade-up">
   <h2>Projects & Case Studies</h2>
 
-  <!-- Project 1: Graphic Design -->
+  <!-- Project 1: Graphic Design (Multiple Images) -->
   <section class="project" data-aos="fade-up">
-    <img src="poster.jpg" alt="Branding & Event Materials" class="project-img" onclick="openLightbox('poster.jpg')" />
+    <img src="poster1.jpg" alt="Branding & Event Materials" class="project-img" onclick="openGallery(['poster1.jpg','poster2.jpg','poster3.jpg'])" />
     <div class="project-content">
       <span class="project-icon">🎨</span>
       <h3>Branding & Event Materials</h3>
       <p>Designed visually engaging posters, banners, and social media content to enhance brand identity and marketing impact.</p>
-      <button class="btn" onclick="openLightbox('poster.jpg')">View Project</button>
+      <button class="btn" onclick="openGallery(['poster1.jpg','poster2.jpg','poster3.jpg'])">View Project</button>
     </div>
   </section>
 
-  <!-- Project 2: Web Development -->
-  <section class="project" data-aos="fade-up" data-aos-delay="100">
-    <img src="website.jpg" alt="Responsive Business Website" class="project-img" onclick="openLightbox('website.jpg')" />
-    <div class="project-content">
-      <span class="project-icon">🌐</span>
-      <h3>Responsive Business Website</h3>
-      <p>Developed mobile-friendly websites that improve user experience, boost online presence, and showcase company services effectively.</p>
-      <button class="btn" onclick="openLightbox('website.jpg')">View Project</button>
-    </div>
-  </section>
+  <!-- Project 2: Web Development (Open Live Website) -->
+<!-- Project 2: Web Development (Open Live Website) -->
+<section class="project" data-aos="fade-up" data-aos-delay="100">
+
+  <a href="https://primestaysuites.co.ke/#booking" target="_blank">
+    <img
+      src="website.jpg"
+      alt="Responsive Business Website"
+      class="project-img"
+    />
+  </a>
+
+  <div class="project-content">
+    <span class="project-icon">🌐</span>
+    <h3>Responsive Business Website</h3>
+    <p>
+      Developed a professional mobile-friendly website that improves user experience
+      and showcases company services effectively.
+    </p>
+
+    <a
+      class="btn"
+      href="https://primestaysuites.co.ke/#booking"
+      target="_blank"
+    >
+      View Project
+    </a>
+  </div>
+
+</section>
 
   <!-- Project 3: UI/UX Design -->
   <section class="project" data-aos="fade-up" data-aos-delay="200">
@@ -143,12 +220,16 @@ footer { text-align: center; padding: 2rem 0; color: var(--muted); font-size: 0.
 </main>
 
 <footer>
-  <p>&copy; <span id="year"></span> GlobalTech Solution — All Rights Reserved.</p>
+  <p>&copy; <span id="year"></span> Adetech Solution — All Rights Reserved.</p>
 </footer>
 
+<!-- Lightbox -->
 <div class="lightbox" id="lightbox">
   <span class="close-btn" onclick="closeLightbox()">&times;</span>
   <img id="lightbox-img" src="" alt="Project Preview" />
+  <span id="prev-btn" onclick="prevImage()">&#10094;</span>
+  <span id="next-btn" onclick="nextImage()">&#10095;</span>
+  <div class="lightbox-counter" id="lightbox-counter"></div>
 </div>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -156,16 +237,59 @@ footer { text-align: center; padding: 2rem 0; color: var(--muted); font-size: 0.
 AOS.init({ duration: 800, once: true });
 document.getElementById("year").textContent = new Date().getFullYear();
 
-function openLightbox(imageSrc) {
-  const lightbox = document.getElementById("lightbox");
-  const img = document.getElementById("lightbox-img");
-  img.src = imageSrc;
-  lightbox.classList.add("active");
+let galleryImages = [];
+let currentIndex = 0;
+let startX = 0;
+
+// Update counter
+function updateCounter() {
+  const counter = document.getElementById("lightbox-counter");
+  counter.textContent = galleryImages.length > 1 ? `${currentIndex + 1} / ${galleryImages.length}` : '';
 }
 
+// Open multi-image gallery
+function openGallery(images) {
+  galleryImages = images;
+  currentIndex = 0;
+  document.getElementById("lightbox-img").src = galleryImages[currentIndex];
+  document.getElementById("lightbox").classList.add("active");
+  updateCounter();
+}
+
+// Open single image lightbox
+function openLightbox(imageSrc) {
+  galleryImages = [imageSrc];
+  currentIndex = 0;
+  document.getElementById("lightbox-img").src = imageSrc;
+  document.getElementById("lightbox").classList.add("active");
+  updateCounter();
+}
+
+// Close lightbox
 function closeLightbox() {
   document.getElementById("lightbox").classList.remove("active");
 }
+
+// Next/Prev image
+function nextImage() {
+  currentIndex = (currentIndex + 1) % galleryImages.length;
+  document.getElementById("lightbox-img").src = galleryImages[currentIndex];
+  updateCounter();
+}
+function prevImage() {
+  currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+  document.getElementById("lightbox-img").src = galleryImages[currentIndex];
+  updateCounter();
+}
+
+// Swipe support for mobile
+const lightbox = document.getElementById("lightbox");
+lightbox.addEventListener("touchstart", (e) => { startX = e.touches[0].clientX; });
+lightbox.addEventListener("touchend", (e) => {
+  const endX = e.changedTouches[0].clientX;
+  if (endX - startX > 50) prevImage();
+  else if (startX - endX > 50) nextImage();
+});
 </script>
 </body>
 </html>
