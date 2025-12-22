@@ -3,10 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elvis Adesh | Professional Portfolio</title>
+<title>Adetech Solutions | Innovative Tech Services</title>
 <link rel="icon" href="A1.png" type="image/png">
 
-<!-- Fonts & Animations -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
@@ -18,12 +17,14 @@
   --white: #ffffff;
   --muted: #9ca3af;
   --bg: #0f172a;
+  --glass: rgba(255, 255, 255, 0.05);
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -47,7 +48,7 @@ body {
   z-index: 1;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0 2rem;
 }
 
 /* Header */
@@ -55,252 +56,110 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0;
-  flex-wrap: wrap;
+  padding: 2rem 0;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-
-.logo img {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-}
-
-.logo h1 {
-  font-size: 1.5rem;
-  color: var(--accent);
-  font-weight: 700;
-}
+.logo { display: flex; align-items: center; gap: 0.8rem; }
+.logo img { width: 45px; height: 45px; border-radius: 50%; }
+.logo h1 { font-size: 1.5rem; color: var(--accent); font-weight: 700; }
 
 nav a {
   color: var(--white);
   text-decoration: none;
   margin-left: 1.5rem;
   font-weight: 600;
-  transition: color 0.3s;
+  transition: 0.3s;
 }
+nav a:hover { color: var(--accent); }
 
-nav a:hover {
-  color: var(--accent);
-}
-
-/* Hero */
+/* Hero Section */
 .hero {
   text-align: center;
-  min-height: 70vh;
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 4rem 1rem;
 }
-.hero h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-.hero h2 span {
-  color: var(--accent);
-}
-.hero p {
-  font-size: 1.2rem;
-  color: var(--muted);
-  max-width: 700px;
-  margin: 0 auto 2rem;
-  line-height: 1.6;
-}
-.hero .buttons {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.hero .buttons a {
-  padding: 0.9rem 2rem;
-  background: var(--accent);
-  color: var(--bg);
-  font-weight: 600;
+.hero h2 { font-size: clamp(2.5rem, 6vw, 3.5rem); font-weight: 700; margin-bottom: 1.5rem; line-height: 1.1; }
+.hero span { color: var(--accent); }
+.hero p { font-size: 1.2rem; color: var(--muted); max-width: 800px; margin: 0 auto 2.5rem; line-height: 1.6; }
+
+.btn-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.btn {
+  padding: 1rem 2.5rem;
   border-radius: 50px;
   text-decoration: none;
+  font-weight: 700;
   transition: 0.3s;
 }
-.hero .buttons a:hover {
-  background: #eab308;
-  transform: translateY(-3px);
-  color: var(--white);
-}
+.btn-primary { background: var(--accent); color: var(--bg); }
+.btn-secondary { border: 2px solid var(--accent); color: var(--accent); }
+.btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(250, 204, 21, 0.2); }
 
-/* Profile Image Card */
-.profile-card {
-  background: rgba(255,255,255,0.08);
-  border-radius: 16px;
-  padding: 2rem;
-  text-align: center;
-  width: 320px;
-  margin: 0 auto;
-  border: 1px solid rgba(250,204,21,0.3);
-}
-.profile-card img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 3px solid var(--accent);
-  margin-bottom: 1rem;
-}
-.profile-card h3 {
-  color: var(--accent);
-  font-size: 1.5rem;
-}
-.profile-card p {
-  color: var(--muted);
-}
+/* Section Styling */
+section { padding: 6rem 0; }
+.section-title { text-align: center; font-size: 2.2rem; margin-bottom: 3.5rem; font-weight: 700; }
+.section-title span { color: var(--accent); }
 
-/* About */
-.about {
-  background: rgba(255,255,255,0.05);
-  border-radius: 16px;
-  padding: 2rem;
-  margin: 3rem 0;
-  text-align: center;
-}
-.about h3 {
-  color: var(--accent);
-  margin-bottom: 1rem;
-  font-size: 1.8rem;
-}
-.about p {
-  color: var(--muted);
-  max-width: 800px;
-  margin: 0 auto;
-  line-height: 1.7;
-}
-
-/* Services */
-.services-section {
-  margin: 3rem 0;
-  padding: 2rem;
-  background: rgba(255,255,255,0.05);
-  border-radius: 16px;
-}
-.services-section h3 {
-  color: var(--accent);
-  text-align: center;
-  font-size: 1.9rem;
-  margin-bottom: 1.5rem;
-}
-.services-grid {
+/* Stats Bar */
+.stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
-.service-card {
-  background: rgba(255,255,255,0.08);
-  padding: 1.5rem;
-  border-radius: 14px;
-  transition: 0.3s ease;
-  border: 1px solid rgba(250,204,21,0.25);
-}
-.service-card:hover {
-  transform: translateY(-6px);
-  background: rgba(255,255,255,0.15);
-}
-.service-card h4 {
-  color: var(--accent);
-  margin-bottom: 0.5rem;
-  font-size: 1.3rem;
-}
-.service-card p {
-  color: var(--muted);
-  margin-bottom: 1rem;
-}
-
-/* Tools Box */
-.tools-box {
-  background: rgba(255,255,255,0.1);
-  padding: 1rem;
-  border-radius: 10px;
-  border: 1px solid rgba(250,204,21,0.3);
-}
-.tools-box strong {
-  display: block;
-  margin-bottom: 0.4rem;
-  color: var(--accent);
-}
-.tools-box ul {
-  padding-left: 1.1rem;
-}
-.tools-box li {
-  margin-bottom: 4px;
-}
-
-/* Contact Form */
-.contact {
-  background: rgba(255,255,255,0.05);
-  border-radius: 16px;
-  padding: 2rem;
-  margin: 3rem 0;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  background: var(--glass);
+  padding: 3rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.1);
   text-align: center;
 }
-.contact h3 {
-  color: var(--accent);
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
+.stat-item h4 { font-size: 2.5rem; color: var(--accent); }
+.stat-item p { color: var(--muted); font-size: 0.9rem; letter-spacing: 1px; }
+
+/* Grid Cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
 }
-form {
-  max-width: 600px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-input, textarea {
-  padding: 0.9rem;
-  border-radius: 8px;
-  border: none;
-  width: 100%;
-  font-family: 'Poppins', sans-serif;
-}
-button {
-  background: var(--accent);
-  color: var(--bg);
-  font-weight: 600;
-  padding: 0.9rem;
-  border-radius: 50px;
-  border: none;
-  cursor: pointer;
+.card {
+  background: var(--glass);
+  padding: 2.5rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.1);
   transition: 0.3s;
 }
-button:hover {
-  background: #eab308;
-  color: var(--white);
+.card:hover { border-color: var(--accent); transform: translateY(-10px); }
+.card h4 { color: var(--accent); margin-bottom: 1rem; font-size: 1.4rem; }
+.card p { color: var(--muted); line-height: 1.6; }
+
+/* Leadership Profile */
+.leadership-box {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  background: var(--glass);
+  padding: 3.5rem;
+  border-radius: 20px;
+  border: 1px solid rgba(250,204,21,0.2);
+  flex-wrap: wrap;
 }
+.leader-img { width: 180px; height: 180px; border-radius: 20px; border: 3px solid var(--accent); object-fit: cover; }
+.leader-info { flex: 1; }
+.leader-info h3 { font-size: 1.8rem; color: var(--accent); }
+.leader-info span { display: block; margin-bottom: 1.2rem; font-weight: 600; opacity: 0.8; }
 
 /* Footer */
 footer {
   text-align: center;
-  padding: 2rem 0;
+  padding: 4rem 0;
+  border-top: 1px solid rgba(255,255,255,0.05);
   color: var(--muted);
-  font-size: 0.9rem;
 }
 
-/* Responsive */
 @media(max-width: 768px) {
-  header {
-    flex-direction: column;
-    text-align: center;
-  }
-  nav {
-    margin-top: 0.5rem;
-  }
-  .logo {
-    justify-content: center;
-  }
+  header { flex-direction: column; gap: 1rem; }
+  .leadership-box { text-align: center; justify-content: center; }
 }
 </style>
 </head>
@@ -309,13 +168,12 @@ footer {
 <div id="tsparticles"></div>
 
 <div class="wrap">
-  <!-- Header -->
   <header>
     <div class="logo">
-      <img src="A1.png" alt="Logo">
-      <h1>Adetech Solution</h1>
+      <img src="A1.png" alt="Adetech Solutions">
+      <h1>Adetech Solutions</h1>
     </div>
-    <nav>
+   <nav>
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="projects.html">Projects</a>
@@ -323,159 +181,93 @@ footer {
       <a href="contact.html">Contact</a>
     </nav>
   </header>
-  <!-- Hero -->
-<section class="hero" data-aos="fade-up">
-  <h2>Welcome to <span>Adetech Solutions</span> 👋</h2>
-  <p>We deliver <strong>innovative digital solutions</strong> and <strong>smart web experiences</strong> for businesses and professionals. From web development to tech consulting, our goal is to help your company thrive in the digital world.</p>
-  <div class="buttons">
-    <a href="cv.pdf" download>Our Brochure</a>
-    <a href="projects.html">View Our Projects</a>
-  </div>
-</section>
-  <!-- Profile Card -->
-  <div class="profile-card" data-aos="fade-up">
-    <img src="A1.png" alt="Profile Picture">
-    <h3>Elvis Adesh</h3>
-    <p>Web Developer • Graphic Designer • Tech Consultant</p>
-  </div>
 
-  <!-- About -->
-  <section class="about" data-aos="fade-right">
-    <h3>About  us</h3>
-    <p>I am a computer science student experienced in web development, database systems, and graphic design. I have previously worked at Litehill System as an operations assistant.</p>
-  </section>
-
-  <!-- Services -->
-  <section class="services-section" data-aos="fade-up">
-    <h3>our Services</h3>
-
-    <div class="services-grid">
-
-      <div class="service-card">
-        <h4>Graphic Design</h4>
-        <p>Posters, logos, banners, flyers, and branding materials.</p>
-        <div class="tools-box">
-          <strong>Tools Used</strong>
-          <ul>
-            <li>Canva</li>
-            <li>Adobe Photoshop</li>
-            <li>Adobe Illustrator</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <h4>Web Development</h4>
-        <p>Responsive websites for businesses and personal brands.</p>
-        <div class="tools-box">
-          <strong>Tools Used</strong>
-          <ul>
-            <li>HTML, CSS, JavaScript</li>
-            <li>WordPress</li>
-            <li>PHP</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <h4>Database Systems</h4>
-        <p>Secure and efficient database management & design.</p>
-        <div class="tools-box">
-          <strong>Tools Used</strong>
-          <ul>
-            <li>MySQL</li>
-            <li>Firebase</li>
-            <li>SQL Server</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <h4>Tech Consultation</h4>
-        <p>Guiding businesses on the best tools and systems for growth.</p>
-        <div class="tools-box">
-          <strong>Tools Used</strong>
-          <ul>
-            <li>System Analysis Tools</li>
-            <li>Documentation Tools</li>
-            <li>IT Advisory Tools</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <h4>Modern Computer Classes</h4>
-        <p>Training students and professionals in IT skills.</p>
-        <div class="tools-box">
-          <strong>Tools Used</strong>
-          <ul>
-            <li>Microsoft Office</li>
-            <li>Typing Tutor Apps</li>
-            <li>Windows OS</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <h4>Virtual Assistance</h4>
-        <p>Email management, scheduling, planning, and data organization.</p>
-        <div class="tools-box">
-          <strong>Tools Used</strong>
-          <ul>
-            <li>Notion</li>
-            <li>Google Workspace (Gmail, Docs, Sheets)</li>
-          </ul>
-        </div>
-      </div>
-
+  <section class="hero" data-aos="fade-up">
+    <h2>Empowering Enterprises with <span>Smart Technology</span></h2>
+    <p>Adetech Solutions delivers high-performance web systems, robust database management, and strategic IT consulting to help businesses thrive in a digital-first economy.</p>
+    <div class="btn-group">
+      <a href="#solutions" class="btn btn-primary">Our Solutions</a>
+      <a href="cv.pdf" class="btn btn-secondary" download>Company Profile</a>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section class="contact" data-aos="fade-up">
-    <h3>Contact Us</h3>
-    <form action="https://formspree.io/f/movqldjq" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="_replyto" placeholder="Your Email" required>
-      <textarea name="message" rows="5" placeholder="Your Message..." required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
+  <section class="stats" data-aos="zoom-in">
+    <div class="stat-item">
+      <h4>50+</h4>
+      <p>Projects Delivered</p>
+    </div>
+    <div class="stat-item">
+      <h4>99%</h4>
+      <p>System Reliability</p>
+    </div>
+    <div class="stat-item">
+      <h4>24/7</h4>
+      <p>Client Support</p>
+    </div>
   </section>
 
-  <!-- Footer -->
+  <section id="solutions">
+    <h3 class="section-title">Enterprise <span>Solutions</span></h3>
+    <div class="grid">
+      <div class="card" data-aos="fade-up">
+        <h4>Custom Web Systems</h4>
+        <p>Responsive, scalable web architectures built with modern frameworks to ensure your business stays ahead of the curve.</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="100">
+        <h4>Data Infrastructure</h4>
+        <p>Expert database management using MySQL and Firebase, focusing on security, speed, and seamless data flow.</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="200">
+        <h4>Strategic Consulting</h4>
+        <p>Guiding businesses through digital transformation with system analysis and professional advisory services.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" data-aos="fade-right">
+    <h3 class="section-title">Our <span>Story</span></h3>
+    <div style="background: var(--glass); padding: 3rem; border-radius: 20px; line-height: 1.8; text-align: center;">
+      <p>Founded on the principles of efficiency and innovation, Adetech Solutions bridges the gap between complex computer science and practical business applications. With a foundation in operational management and technical mastery, we build systems that don't just work—they excel.</p>
+    </div>
+  </section>
+
+  <section id="leadership">
+    <h3 class="section-title">Company <span>Leadership</span></h3>
+    <div class="leadership-box" data-aos="fade-up">
+      <img src="A1.png" alt="Elvis Adesh" class="leader-img">
+      <div class="leader-info">
+        <h3>Elvis Adesh</h3>
+        <span>Founder & Technical Director</span>
+        <p style="color: var(--muted); line-height: 1.7;">
+          A Computer Science expert with a background as an operations assistant at Litehill System. Elvis combines rigorous technical training with operational insights to lead the Adetech team in delivering superior digital infrastructure.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <footer>
-    <p>© <span id="year"></span> Adetech | All Rights Reserved</p>
+    <p>© <span id="year"></span> Adetech Solutions | Precision in Technology</p>
   </footer>
 </div>
 
-<!-- Scripts -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
 AOS.init({ duration: 1000, once: true });
 document.getElementById("year").textContent = new Date().getFullYear();
-</script>
 
-<script>
 tsParticles.load("tsparticles", {
   fpsLimit: 60,
   particles: {
-    number: { value: 60 },
+    number: { value: 50 },
     color: { value: "#facc15" },
     shape: { type: "circle" },
-    opacity: { value: 0.6 },
+    opacity: { value: 0.4 },
     size: { value: { min: 1, max: 3 } },
-    links: { enable: true, distance: 120, color: "#facc15", opacity: 0.3, width: 1 },
-    move: { enable: true, speed: 1.2, random: true }
-  },
-  interactivity: {
-    events: { onhover: { enable: true, mode: "repulse" } },
-    modes: { repulse: { distance: 100 } }
-  },
-  detectRetina: true
+    links: { enable: true, distance: 150, color: "#facc15", opacity: 0.2, width: 1 },
+    move: { enable: true, speed: 0.8, random: true }
+  }
 });
 </script>
 
 </body>
 </html>
-
-
