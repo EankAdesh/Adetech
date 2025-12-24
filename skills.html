@@ -3,250 +3,272 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Services| Adetech Solution</title>
+
+<title>Services | Adetech Solution</title>
 <link rel="icon" href="A1.png" type="image/png">
+
+<!-- ====== SEO OPTIMIZATION (KENYA-FOCUSED) ====== -->
+<meta name="description" content="Adetech Solution is a Kenya-based tech company offering web development, graphic design, database systems, computer classes, and IT consulting services.">
+<meta name="keywords" content="Web development Kenya, Graphic design Kenya, IT services Kenya, Database systems Kenya, Computer classes Kenya, Tech consulting Kenya, Website designers in Kenya, Adetech Solution">
+<meta name="author" content="Adetech Solution">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Adetech Solution | Professional IT & Web Services in Kenya">
+<meta property="og:description" content="Web development, graphic design, database systems, computer training, and IT consulting services across Kenya.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_KE">
+<meta property="og:image" content="https://yourdomain.co.ke/A1.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Adetech Solution | IT & Digital Services in Kenya">
+<meta name="twitter:description" content="Affordable and professional web, design, and tech solutions for Kenyan businesses and individuals.">
+
+<!-- Local Business Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Adetech Solution",
+  "image": "https://yourdomain.co.ke/A1.png",
+  "url": "https://yourdomain.co.ke",
+  "telephone": "+254703107121",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "KE"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Kenya"
+  },
+  "description": "Adetech Solution provides web development, graphic design, database systems, computer training, and IT consulting services in Kenya."
+}
+</script>
+<!-- ====== END SEO ====== -->
+
+<link rel="preconnect" href="https://unpkg.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
 <style>
 :root {
-  --bg: #0f172a;        /* Dark navy background */
-  --text: #ffffff;      /* White text */
-  --accent: #facc15;    /* Golden accent */
-  --muted: #94a3b8;     /* Muted gray */
-  --card-bg: rgba(255, 255, 255, 0.08);
+  --bg:#0f172a;
+  --text:#ffffff;
+  --accent:#facc15;
+  --muted:#94a3b8;
+  --card-bg:rgba(255,255,255,0.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:Poppins,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+header{
+  background:rgba(255,255,255,0.05);
+  padding:1rem 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+}
+header h1{color:var(--accent);font-size:1.8rem}
+nav{display:flex;gap:1.5rem}
+nav a{
+  color:var(--text);
+  text-decoration:none;
+  font-weight:600;
+  position:relative;
+}
+nav a.active,nav a:hover{color:var(--accent)}
+nav a::after{
+  content:"";
+  position:absolute;
+  width:0;height:2px;
+  bottom:-4px;left:0;
+  background:var(--accent);
+  transition:.3s;
+}
+nav a:hover::after,nav a.active::after{width:100%}
+
+main{flex:1;padding:3rem 2rem}
+h2{text-align:center;color:var(--accent);margin-bottom:2rem}
+
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1.8rem;
+  max-width:1100px;
+  margin:0 auto;
+}
+.skill-card{
+  background:var(--card-bg);
+  padding:1.5rem;
+  border-radius:16px;
+  text-align:center;
+  transition:.3s;
+}
+.skill-card:hover{transform:translateY(-8px)}
+.skill-card i{font-size:2.5rem;color:var(--accent);margin-bottom:1rem}
+.skill-name{font-weight:700;font-size:1.2rem}
+.skill-desc{color:var(--muted);font-size:.95rem;margin:1rem 0}
+
+.progress-bar{
+  background:rgba(255,255,255,0.15);
+  border-radius:10px;
+  height:8px;
+  overflow:hidden;
+}
+.progress{
+  background:var(--accent);
+  height:8px;
+  width:0;
+  transition:1.5s;
 }
 
-/* GLOBAL */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  font-family: "Poppins", sans-serif;
-  background-color: var(--bg);
-  color: var(--text);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-/* HEADER (Matches Contact Page) */
-header {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 1rem 5%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-header h1 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--accent);
-  letter-spacing: 1px;
-}
-nav {
-  display: flex;
-  gap: 1.5rem;
-}
-nav a {
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 600;
-  position: relative;
-  transition: color 0.3s ease;
-}
-nav a::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -4px;
-  left: 0;
-  background: var(--accent);
-  transition: width 0.3s;
-}
-nav a:hover,
-nav a.active {
-  color: var(--accent);
-}
-nav a:hover::after,
-nav a.active::after {
-  width: 100%;
-}
-
-/* MAIN */
-main {
-  flex: 1;
-  padding: 3rem 2rem;
-}
-h2 {
-  text-align: center;
-  color: var(--accent);
-  font-size: 2rem;
-  margin-bottom: 2rem;
-}
-
-/* SKILLS GRID */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.8rem;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-.skill-card {
-  background: var(--card-bg);
-  border-radius: 16px;
-  padding: 1.5rem;
-  text-align: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-.skill-card:hover {
-  transform: translateY(-8px);
-  background: rgba(255, 255, 255, 0.12);
-}
-.skill-card i {
-  font-size: 2.5rem;
-  color: var(--accent);
-  margin-bottom: 1rem;
-}
-.skill-name {
-  font-weight: 700;
-  font-size: 1.2rem;
-  margin-bottom: 0.4rem;
-}
-.skill-desc {
-  color: var(--muted);
-  font-size: 0.95rem;
-  margin-bottom: 1rem;
-  line-height: 1.5;
-}
-
-/* Progress Bar */
-.progress-bar {
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 10px;
-  overflow: hidden;
-  height: 8px;
-}
-.progress {
-  height: 8px;
-  border-radius: 10px;
-  background: var(--accent);
-  width: 0;
-  transition: width 1.5s ease-in-out;
-}
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 1rem;
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-/* RESPONSIVE */
-@media (max-width: 600px) {
-  header {
-    flex-direction: column;
-    text-align: center;
-  }
-  nav {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  h2 {
-    font-size: 1.6rem;
-  }
-  .skill-card {
-    padding: 1.2rem;
-  }
-}
+footer{text-align:center;padding:1rem;color:var(--muted)}
 </style>
 </head>
 
 <body>
-  <!-- Header -->
-  <header>
-    <h1>Adetech Solution</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="projects.html">Projects</a>
-      <a href="skills.html" class="active">Services</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
 
-  <!-- Skills Section -->
-  <main>
-    <h2 data-aos="fade-up"> What We Offer</h2>
-    <section class="skills-grid" data-aos="fade-up">
-      <div class="skill-card" data-level="95">
-        <i class="fa-solid fa-desktop"></i>
-        <div class="skill-name">Modern Computer Classes</div>
-        <div class="skill-desc">Expert in Word, Excel, PowerPoint, and Publisher for professional tasks.</div>
-        <div class="progress-bar"><div class="progress"></div></div>
-      </div>
+<header>
+  <h1>Adetech Solution</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="services.html" class="active">Services</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
 
-      <div class="skill-card" data-level="90">
-        <i class="fa-solid fa-code"></i>
-        <div class="skill-name">Web Development</div>
-        <div class="skill-desc">We build modern, responsive websites using HTML, CSS, and WordPress, tailored for mobile and desktop users.</div>
-        <div class="progress-bar"><div class="progress"></div></div>
-      </div>
+<main>
 
-      <div class="skill-card" data-level="80">
-        <i class="fa-brands fa-js"></i>
-        <div class="skill-name">UI/UX Design</div>
-        <div class="skill-desc">Crafting intuitive, user-friendly interfaces and experiences that engage visitors and make websites easy to navigate.</div>
-        <div class="progress-bar"><div class="progress"></div></div>
-      </div>
+<h2 data-aos="fade-up">What We Offer</h2>
 
-      <div class="skill-card" data-level="90">
-        <i class="fa-solid fa-pen-nib"></i>
-        <div class="skill-name">Graphic Design</div>
-        <div class="skill-desc">We Design logos, Brand identities, Marketing materials, and Social media content.</div>
-        <div class="progress-bar"><div class="progress"></div></div>
-      </div>
+<section class="skills-grid" data-aos="fade-up">
 
-      <div class="skill-card" data-level="85">
-        <i class="fa-solid fa-database"></i>
-        <div class="skill-name">Database & System Solutions</div>
-        <div class="skill-desc"> We Develop Database System for tracking, storing, and managing critical business data.”</div>
-        <div class="progress-bar"><div class="progress"></div></div>
-      </div>
+<div class="skill-card" data-level="95">
+<i class="fa-solid fa-desktop"></i>
+<div class="skill-name">Modern Computer Classes</div>
+<div class="skill-desc">Professional training in Word, Excel, PowerPoint, and Publisher.</div>
+<div class="progress-bar"><div class="progress"></div></div>
+</div>
 
-      <div class="skill-card" data-level="75">
-        <i class="fa-solid fa-gears"></i>
-        <div class="skill-name">Tech Consulting</div>
-        <div class="skill-desc"> We Deliver professional tech advice and digital solutions tailored to your business needs.”</div>
-        <div class="progress-bar"><div class="progress"></div></div>
-      </div>
-    </section>
-  </main>
+<div class="skill-card" data-level="90">
+<i class="fa-solid fa-code"></i>
+<div class="skill-name">Web Development</div>
+<div class="skill-desc">Modern, responsive websites using HTML, CSS, JavaScript, and WordPress.</div>
+<div class="progress-bar"><div class="progress"></div></div>
+</div>
 
-  <footer>
-    <p>&copy; <span id="year"></span> Adetech Solution — All Rights Reserved.</p>
-  </footer>
+<div class="skill-card" data-level="80">
+<i class="fa-solid fa-palette"></i>
+<div class="skill-name">UI / UX Design</div>
+<div class="skill-desc">User-friendly interfaces that improve engagement and usability.</div>
+<div class="progress-bar"><div class="progress"></div></div>
+</div>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 800, once: true });
-    document.getElementById('year').textContent = new Date().getFullYear();
+<div class="skill-card" data-level="90">
+<i class="fa-solid fa-pen-nib"></i>
+<div class="skill-name">Graphic Design</div>
+<div class="skill-desc">Logos, brand identity, marketing materials, and social media designs.</div>
+<div class="progress-bar"><div class="progress"></div></div>
+</div>
 
-    // Animate progress bars when loaded
-    window.addEventListener('load', () => {
-      document.querySelectorAll('.skill-card').forEach(card => {
-        const level = card.getAttribute('data-level');
-        const progress = card.querySelector('.progress');
-        progress.style.width = level + '%';
-      });
-    });
-  </script>
+<div class="skill-card" data-level="85">
+<i class="fa-solid fa-database"></i>
+<div class="skill-name">Database & System Solutions</div>
+<div class="skill-desc">Custom systems for tracking, storing, and managing business data.</div>
+<div class="progress-bar"><div class="progress"></div></div>
+</div>
+
+<div class="skill-card" data-level="75">
+<i class="fa-solid fa-gears"></i>
+<div class="skill-name">Tech Consulting</div>
+<div class="skill-desc">Professional IT advice and digital solutions for businesses.</div>
+<div class="progress-bar"><div class="progress"></div></div>
+</div>
+
+</section>
+
+<!-- SUPPORT & MAINTENANCE -->
+<section style="max-width:1100px;margin:4rem auto" data-aos="fade-up">
+<h2>Support & Maintenance</h2>
+<div class="skills-grid">
+<div class="skill-card">
+<i class="fa-solid fa-headset"></i>
+<div class="skill-name">Ongoing Support</div>
+<div class="skill-desc">Continuous assistance even after project delivery.</div>
+</div>
+<div class="skill-card">
+<i class="fa-solid fa-rotate"></i>
+<div class="skill-name">Updates & Improvements</div>
+<div class="skill-desc">System updates, performance improvements, and enhancements.</div>
+</div>
+<div class="skill-card">
+<i class="fa-solid fa-shield-halved"></i>
+<div class="skill-name">Security & Backup</div>
+<div class="skill-desc">Data protection, security monitoring, and backups.</div>
+</div>
+</div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section style="max-width:1100px;margin:4rem auto" data-aos="fade-up">
+<h2>Why Choose Us</h2>
+<div class="skills-grid">
+<div class="skill-card">
+<i class="fa-solid fa-user-tie"></i>
+<div class="skill-name">Professional Expertise</div>
+<div class="skill-desc">Industry-standard solutions using modern tools.</div>
+</div>
+<div class="skill-card">
+<i class="fa-solid fa-clock"></i>
+<div class="skill-name">Timely Delivery</div>
+<div class="skill-desc">Projects delivered within agreed timelines.</div>
+</div>
+<div class="skill-card">
+<i class="fa-solid fa-handshake"></i>
+<div class="skill-name">Client-Focused</div>
+<div class="skill-desc">We listen, advise, and build around your goals.</div>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer>
+<p>&copy; <span id="year"></span> Adetech Solution — All Rights Reserved.</p>
+</footer>
+
+<!-- WhatsApp Button -->
+<a href="https://wa.me/254703107121" target="_blank" style="
+position:fixed;bottom:20px;right:20px;
+background:#25D366;color:#fff;
+padding:14px 16px;border-radius:50%;
+font-size:1.4rem;z-index:1000;">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init({duration:800,once:true});
+document.getElementById("year").textContent=new Date().getFullYear();
+window.addEventListener("load",()=>{
+document.querySelectorAll(".skill-card").forEach(card=>{
+const level=card.dataset.level;
+const bar=card.querySelector(".progress");
+if(bar) bar.style.width=level+"%";
+});
+});
+</script>
+
 </body>
 </html>
-
-
