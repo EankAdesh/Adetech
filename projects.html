@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Projects | Adetech Solution</title>
+<title>Projects | Adetech Solutions</title>
 <link rel="icon" href="A1.png" type="image/png" />
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
@@ -14,281 +14,236 @@
   --text: #ffffff;
   --accent: #facc15;
   --muted: #94a3b8;
+  --glass: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.1);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: "Poppins", sans-serif; background-color: var(--bg); color: var(--text); min-height: 100vh; }
+body { 
+    font-family: "Poppins", sans-serif; 
+    background-color: var(--bg); 
+    color: var(--text); 
+    min-height: 100vh;
+    line-height: 1.6;
+}
 
 /* Header */
 header {
-  background: rgba(255,255,255,0.05);
-  padding: 1rem 5%;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 1.2rem 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--glass-border);
 }
-header h1 { font-size: 1.8rem; font-weight: 700; color: var(--accent); letter-spacing: 1px; }
-nav { display: flex; gap: 1.5rem; }
-nav a { color: var(--text); text-decoration: none; font-weight: 600; position: relative; transition: color 0.3s ease; }
-nav a::after { content:""; position: absolute; width:0; height:2px; bottom:-4px; left:0; background: var(--accent); transition: width 0.3s; }
+header h1 { font-size: 1.5rem; font-weight: 700; color: var(--accent); }
+nav { display: flex; gap: 2rem; }
+nav a { color: var(--muted); text-decoration: none; font-weight: 500; transition: 0.3s; font-size: 0.9rem; }
 nav a:hover, nav a.active { color: var(--accent); }
-nav a:hover::after, nav a.active::after { width: 100%; }
+
+/* Hero Area */
+.page-header {
+    text-align: center;
+    padding: 5rem 2rem 3rem;
+}
+.page-header h2 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; }
+.page-header h2 span { color: var(--accent); }
+.page-header p { color: var(--muted); max-width: 600px; margin: 0 auto; }
 
 /* Main Content */
-.wrap { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem; }
-h2 { text-align: center; color: var(--accent); font-size: 2rem; margin-bottom: 3rem; }
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 2rem 5rem; }
 
-/* Project Section */
+/* Project Card */
 .project {
   display: flex;
-  flex-wrap: wrap;
+  gap: 3rem;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 2.5rem;
   margin-bottom: 4rem;
   align-items: center;
+  transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.project:nth-child(even) { flex-direction: row-reverse; }
-.project-img { flex: 1; max-width: 600px; width: 100%; border-radius: 16px; border: 3px solid var(--accent); box-shadow: 0 8px 20px rgba(0,0,0,0.5); cursor: pointer; }
-.project-content { flex: 1; padding: 2rem; }
-.project-icon { font-size: 2rem; margin-bottom: 0.5rem; display: inline-block; color: var(--accent); }
-.project-content h3 { color: var(--accent); font-size: 1.8rem; margin-bottom: 1rem; }
-.project-content p { color: var(--muted); font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem; }
-.btn { display: inline-block; padding: 0.6rem 1.2rem; background: var(--accent); color: var(--bg); font-weight: 600; border-radius: 25px; text-decoration: none; transition: background 0.3s ease, transform 0.2s ease; cursor: pointer; }
-.btn:hover { background: #fde047; transform: scale(1.05); }
+.project:hover { background: rgba(255, 255, 255, 0.06); border-color: rgba(250, 204, 21, 0.3); }
 
-/* Lightbox Modern Style */
+.project:nth-child(even) { flex-direction: row-reverse; }
+
+.project-img-wrapper {
+    flex: 1;
+    overflow: hidden;
+    border-radius: 16px;
+    position: relative;
+}
+.project-img { 
+    width: 100%; 
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s ease;
+    cursor: pointer;
+    display: block;
+}
+.project-img:hover { transform: scale(1.05); }
+
+.project-content { flex: 1; }
+.tag {
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    display: block;
+}
+.project-content h3 { font-size: 1.8rem; margin-bottom: 1rem; }
+.project-content p { color: var(--muted); margin-bottom: 2rem; }
+
+.btn { 
+    display: inline-flex; 
+    align-items: center;
+    gap: 8px;
+    padding: 0.8rem 1.8rem; 
+    background: var(--accent); 
+    color: var(--bg); 
+    font-weight: 700; 
+    border-radius: 12px; 
+    text-decoration: none; 
+    transition: 0.3s;
+}
+.btn:hover { background: #fff; transform: translateY(-3px); }
+
+/* Lightbox */
 .lightbox {
-  position: fixed;
-  inset: 0;
-  background: rgba(15, 23, 42, 0.95);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease;
-  z-index: 1000;
-  flex-direction: column;
+  position: fixed; inset: 0; background: rgba(0, 0, 0, 0.9);
+  display: flex; justify-content: center; align-items: center;
+  opacity: 0; visibility: hidden; transition: 0.3s; z-index: 2000;
 }
 .lightbox.active { opacity: 1; visibility: visible; }
-
-.lightbox img {
-  max-width: 90%;
-  max-height: 80%;
-  border-radius: 12px;
-  border: 2px solid var(--accent);
-  box-shadow: 0 0 40px rgba(0,0,0,0.8);
-  transition: transform 0.3s ease;
-}
-.lightbox img:hover { transform: scale(1.02); }
-
-.close-btn {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  color: var(--accent);
-  font-size: 2.5rem;
-  cursor: pointer;
-  font-weight: bold;
-  transition: color 0.2s;
-}
-.close-btn:hover { color: #fde047; }
-
-#prev-btn, #next-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 2.5rem;
-  color: var(--accent);
-  cursor: pointer;
-  user-select: none;
-  transition: color 0.2s;
-}
-#prev-btn:hover, #next-btn:hover { color: #fde047; }
-#prev-btn { left: 15px; }
-#next-btn { right: 15px; }
-
-.lightbox-counter {
-  color: var(--accent);
-  font-weight: 600;
-  margin-top: 12px;
-  font-size: 0.95rem;
-}
+.lightbox img { max-width: 85%; max-height: 80%; border-radius: 8px; }
+.close-btn { position: absolute; top: 30px; right: 40px; color: #fff; font-size: 2rem; cursor: pointer; }
 
 /* Footer */
-footer { text-align: center; padding: 2rem 0; color: var(--muted); font-size: 0.9rem; }
+footer { text-align: center; padding: 4rem 0; border-top: 1px solid var(--glass-border); color: var(--muted); }
 
-/* Responsive */
 @media (max-width: 900px) {
-  .project { flex-direction: column; }
-  .project:nth-child(even) { flex-direction: column; }
-  .project-content { padding: 1.5rem 0; }
+  .project, .project:nth-child(even) { flex-direction: column; padding: 1.5rem; }
+  .project-content { text-align: center; }
 }
 </style>
 </head>
 
 <body>
 <header>
-  <h1>Adetech Solution</h1>
+  <h1>Adetech</h1>
   <nav>
     <a href="index.html">Home</a>
-    <a href="about.html">About</a>
     <a href="projects.html" class="active">Projects</a>
     <a href="skills.html">Services</a>
     <a href="contact.html">Contact</a>
   </nav>
 </header>
 
-<main class="wrap" data-aos="fade-up">
-  <h2>Projects & Case Studies</h2>
+<div class="page-header" data-aos="fade-down">
+    <h2>Our <span>Case Studies</span></h2>
+    <p>A showcase of technical excellence, creative branding, and robust system architecture delivered by Adetech Solutions.</p>
+</div>
 
-  <!-- Project 1: Graphic Design (Multiple Images) -->
+<main class="wrap">
+
   <section class="project" data-aos="fade-up">
-    <img src="poster1.jpg" alt="Branding & Event Materials" class="project-img" onclick="openGallery(['poster1.jpg','poster2.jpg','poster3.jpg'])" />
+    <div class="project-img-wrapper">
+        <img src="poster1.jpg" alt="Branding" class="project-img" onclick="openGallery(['poster1.jpg','poster2.jpg','poster3.jpg'])" />
+    </div>
     <div class="project-content">
-      <span class="project-icon">🎨</span>
-      <h3>Branding & Event Materials</h3>
-      <p>Designed visually engaging posters, banners, and social media content to enhance brand identity and marketing impact.</p>
-      <button class="btn" onclick="openGallery(['poster1.jpg','poster2.jpg','poster3.jpg'])">View Project</button>
+      <span class="tag">Graphic Design</span>
+      <h3>Identity & Event Branding</h3>
+      <p>Precision-crafted visual assets including banners and social media systems designed to elevate marketing impact and brand recall.</p>
+      <button class="btn" onclick="openGallery(['poster1.jpg','poster2.jpg','poster3.jpg'])">View Gallery</button>
     </div>
   </section>
 
-  <!-- Project 2: Web Development (Open Live Website) -->
-<!-- Project 2: Web Development (Open Live Website) -->
-<section class="project" data-aos="fade-up" data-aos-delay="100">
-
-  <a href="https://primestaysuites.co.ke/#booking" target="_blank">
-    <img
-      src="website.jpg"
-      alt="Responsive Business Website"
-      class="project-img"
-    />
-  </a>
-
-  <div class="project-content">
-    <span class="project-icon">🌐</span>
-    <h3>Responsive Business Website</h3>
-    <p>
-      Developed a professional mobile-friendly website that improves user experience
-      and showcases company services effectively.
-    </p>
-
-    <a
-      class="btn"
-      href="https://primestaysuites.co.ke/#booking"
-      target="_blank"
-    >
-      View Project
-    </a>
-  </div>
-
-</section>
-
-  <!-- Project 3: UI/UX Design -->
-  <section class="project" data-aos="fade-up" data-aos-delay="200">
-    <img src="uiux.jpg" alt="User Experience Design" class="project-img" onclick="openLightbox('uiux.jpg')" />
+  <section class="project" data-aos="fade-up">
+    <div class="project-img-wrapper">
+        <img src="website.jpg" alt="Web Dev" class="project-img" />
+    </div>
     <div class="project-content">
-      <span class="project-icon">🖥️</span>
-      <h3>User Experience Design</h3>
-      <p>Created intuitive interfaces and seamless user experiences for websites and applications, increasing engagement and usability.</p>
-      <button class="btn" onclick="openLightbox('uiux.jpg')">View Project</button>
+      <span class="tag">Web Development</span>
+      <h3>PrimeStay Suites Portal</h3>
+      <p>A fully responsive booking engine and business website built for high conversion and seamless mobile experience.</p>
+      <a class="btn" href="https://primestaysuites.co.ke/#booking" target="_blank">Launch Website</a>
     </div>
   </section>
 
-  <!-- Project 4: Database -->
-  <section class="project" data-aos="fade-up" data-aos-delay="300">
-    <img src="database.jpg" alt="Client Management System" class="project-img" onclick="openLightbox('database.jpg')" />
+  <section class="project" data-aos="fade-up">
+    <div class="project-img-wrapper">
+        <img src="database.jpg" alt="Systems" class="project-img" onclick="openLightbox('database.jpg')" />
+    </div>
     <div class="project-content">
-      <span class="project-icon">🗄️</span>
+      <span class="tag">Infrastructure</span>
       <h3>Client Management System</h3>
-      <p>Built secure, organized databases to streamline client tracking, reporting, and internal operations for businesses.</p>
-      <button class="btn" onclick="openLightbox('database.jpg')">View Project</button>
-    </div>
-  </section>
-
-  <!-- Project 5: Tech Consulting -->
-  <section class="project" data-aos="fade-up" data-aos-delay="400">
-    <img src="tech.jpg" alt="IT Solutions & Consulting" class="project-img" onclick="openLightbox('tech.jpg')" />
-    <div class="project-content">
-      <span class="project-icon">💡</span>
-      <h3>IT Solutions & Consulting</h3>
-      <p>Provided strategic technology guidance and practical digital solutions to optimize workflows and improve business efficiency.</p>
-      <button class="btn" onclick="openLightbox('tech.jpg')">View Project</button>
+      <p>Custom-built secure database architecture designed to streamline internal tracking and reporting for large-scale operations.</p>
+      <button class="btn" onclick="openLightbox('database.jpg')">Study Architecture</button>
     </div>
   </section>
 
 </main>
 
 <footer>
-  <p>&copy; <span id="year"></span> Adetech Solution — All Rights Reserved.</p>
+  <p>&copy; <span id="year"></span> Adetech Solutions — Precision in Technology.</p>
 </footer>
 
-<!-- Lightbox -->
 <div class="lightbox" id="lightbox">
   <span class="close-btn" onclick="closeLightbox()">&times;</span>
-  <img id="lightbox-img" src="" alt="Project Preview" />
-  <span id="prev-btn" onclick="prevImage()">&#10094;</span>
-  <span id="next-btn" onclick="nextImage()">&#10095;</span>
-  <div class="lightbox-counter" id="lightbox-counter"></div>
+  <img id="lightbox-img" src="" />
+  <div class="lightbox-counter" id="lightbox-counter" style="position: absolute; bottom: 20px; color: #fff;"></div>
 </div>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-AOS.init({ duration: 800, once: true });
+AOS.init({ duration: 1000, once: true });
 document.getElementById("year").textContent = new Date().getFullYear();
 
 let galleryImages = [];
 let currentIndex = 0;
-let startX = 0;
 
-// Update counter
-function updateCounter() {
-  const counter = document.getElementById("lightbox-counter");
-  counter.textContent = galleryImages.length > 1 ? `${currentIndex + 1} / ${galleryImages.length}` : '';
-}
-
-// Open multi-image gallery
 function openGallery(images) {
   galleryImages = images;
   currentIndex = 0;
+  showImage();
+}
+
+function openLightbox(src) {
+  galleryImages = [src];
+  currentIndex = 0;
+  showImage();
+}
+
+function showImage() {
   document.getElementById("lightbox-img").src = galleryImages[currentIndex];
   document.getElementById("lightbox").classList.add("active");
-  updateCounter();
 }
 
-// Open single image lightbox
-function openLightbox(imageSrc) {
-  galleryImages = [imageSrc];
-  currentIndex = 0;
-  document.getElementById("lightbox-img").src = imageSrc;
-  document.getElementById("lightbox").classList.add("active");
-  updateCounter();
-}
-
-// Close lightbox
 function closeLightbox() {
   document.getElementById("lightbox").classList.remove("active");
 }
 
-// Next/Prev image
-function nextImage() {
-  currentIndex = (currentIndex + 1) % galleryImages.length;
-  document.getElementById("lightbox-img").src = galleryImages[currentIndex];
-  updateCounter();
-}
-function prevImage() {
-  currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-  document.getElementById("lightbox-img").src = galleryImages[currentIndex];
-  updateCounter();
-}
-
-// Swipe support for mobile
-const lightbox = document.getElementById("lightbox");
-lightbox.addEventListener("touchstart", (e) => { startX = e.touches[0].clientX; });
-lightbox.addEventListener("touchend", (e) => {
-  const endX = e.changedTouches[0].clientX;
-  if (endX - startX > 50) prevImage();
-  else if (startX - endX > 50) nextImage();
+// Keyboard Support
+document.addEventListener('keydown', (e) => {
+    if (e.key === "Escape") closeLightbox();
+    if (document.getElementById("lightbox").classList.contains("active")) {
+        if (e.key === "ArrowRight") {
+            currentIndex = (currentIndex + 1) % galleryImages.length;
+            showImage();
+        }
+        if (e.key === "ArrowLeft") {
+            currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+            showImage();
+        }
+    }
 });
 </script>
 </body>
