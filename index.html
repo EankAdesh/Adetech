@@ -6,9 +6,14 @@
 <title>Adetech Solutions | Innovative Tech Services</title>
 <link rel="icon" href="A1.png" type="image/png">
 
+<!-- Fonts & AOS -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
+
+<!-- Swiper for Testimonials -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
 <style>
 :root {
@@ -20,150 +25,78 @@
   --glass: rgba(255, 255, 255, 0.05);
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
+* { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
+body { font-family:'Poppins', sans-serif; color:var(--white); background:var(--bg); overflow-x:hidden; }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  color: var(--white);
-  background: var(--bg);
-  overflow-x: hidden;
-}
+#tsparticles { position:fixed; top:0; left:0; width:100%; height:100%; z-index:0; }
 
-#tsparticles {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-}
+.wrap { position:relative; z-index:1; max-width:1200px; margin:0 auto; padding:0 2rem; }
 
-.wrap {
-  position: relative;
-  z-index: 1;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
+header { display:flex; justify-content:space-between; align-items:center; padding:2rem 0; z-index:2; position:relative; }
+.logo { display:flex; align-items:center; gap:0.8rem; }
+.logo img { width:45px; height:45px; border-radius:50%; }
+.logo h1 { font-size:1.5rem; color:var(--accent); font-weight:700; }
+nav a { color:var(--white); text-decoration:none; margin-left:1.5rem; font-weight:600; transition:0.3s; }
+nav a:hover { color:var(--accent); }
 
-/* Header */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 2rem 0;
-}
+/* Hero */
+.hero { text-align:center; min-height:80vh; display:flex; flex-direction:column; justify-content:center; align-items:center; }
+.hero h2 { font-size:clamp(2.5rem,6vw,3.5rem); font-weight:700; margin-bottom:1.5rem; line-height:1.1; }
+.hero span { color:var(--accent); }
+.hero p { font-size:1.2rem; color:var(--muted); max-width:800px; margin:0 auto 2.5rem; line-height:1.6; }
+.btn-group { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+.btn { padding:1rem 2.5rem; border-radius:50px; text-decoration:none; font-weight:700; transition:0.3s; cursor:pointer; }
+.btn-primary { background:var(--accent); color:var(--bg); }
+.btn-secondary { border:2px solid var(--accent); color:var(--accent); }
+.btn:hover { transform:translateY(-5px); box-shadow:0 10px 20px rgba(250,204,21,0.2); }
 
-.logo { display: flex; align-items: center; gap: 0.8rem; }
-.logo img { width: 45px; height: 45px; border-radius: 50%; }
-.logo h1 { font-size: 1.5rem; color: var(--accent); font-weight: 700; }
+/* Stats */
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2rem; background:var(--glass); padding:3rem; border-radius:20px; border:1px solid rgba(255,255,255,0.1); text-align:center; margin-bottom:6rem; }
+.stat-item h4 { font-size:2.5rem; color:var(--accent); }
+.stat-item p { color:var(--muted); font-size:0.9rem; letter-spacing:1px; }
 
-nav a {
-  color: var(--white);
-  text-decoration: none;
-  margin-left: 1.5rem;
-  font-weight: 600;
-  transition: 0.3s;
-}
-nav a:hover { color: var(--accent); }
-
-/* Hero Section */
-.hero {
-  text-align: center;
-  min-height: 80vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.hero h2 { font-size: clamp(2.5rem, 6vw, 3.5rem); font-weight: 700; margin-bottom: 1.5rem; line-height: 1.1; }
-.hero span { color: var(--accent); }
-.hero p { font-size: 1.2rem; color: var(--muted); max-width: 800px; margin: 0 auto 2.5rem; line-height: 1.6; }
-
-.btn-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-.btn {
-  padding: 1rem 2.5rem;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 700;
-  transition: 0.3s;
-}
-.btn-primary { background: var(--accent); color: var(--bg); }
-.btn-secondary { border: 2px solid var(--accent); color: var(--accent); }
-.btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(250, 204, 21, 0.2); }
-
-/* Section Styling */
-section { padding: 6rem 0; }
-.section-title { text-align: center; font-size: 2.2rem; margin-bottom: 3.5rem; font-weight: 700; }
-.section-title span { color: var(--accent); }
-
-/* Stats Bar */
-.stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
-  background: var(--glass);
-  padding: 3rem;
-  border-radius: 20px;
-  border: 1px solid rgba(255,255,255,0.1);
-  text-align: center;
-}
-.stat-item h4 { font-size: 2.5rem; color: var(--accent); }
-.stat-item p { color: var(--muted); font-size: 0.9rem; letter-spacing: 1px; }
+/* Section Titles */
+section { padding:6rem 0; }
+.section-title { text-align:center; font-size:2.2rem; margin-bottom:3.5rem; font-weight:700; }
+.section-title span { color:var(--accent); }
 
 /* Grid Cards */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-}
-.card {
-  background: var(--glass);
-  padding: 2.5rem;
-  border-radius: 20px;
-  border: 1px solid rgba(255,255,255,0.1);
-  transition: 0.3s;
-}
-.card:hover { border-color: var(--accent); transform: translateY(-10px); }
-.card h4 { color: var(--accent); margin-bottom: 1rem; font-size: 1.4rem; }
-.card p { color: var(--muted); line-height: 1.6; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:2rem; }
+.card { background:var(--glass); padding:2.5rem; border-radius:20px; border:1px solid rgba(255,255,255,0.1); transition:0.3s; display:flex; flex-direction:column; justify-content:space-between; }
+.card:hover { border-color:var(--accent); transform:translateY(-10px); }
+.card h4 { color:var(--accent); margin-bottom:1rem; font-size:1.4rem; }
+.card p { color:var(--muted); line-height:1.6; margin-bottom:1.5rem; }
+.card .card-btn { background:var(--accent); color:var(--bg); padding:0.8rem 2rem; border-radius:50px; font-weight:600; text-decoration:none; text-align:center; transition:0.3s; }
+.card .card-btn:hover { background:#fff; transform:translateY(-5px); }
 
-/* Leadership Profile */
-.leadership-box {
-  display: flex;
-  align-items: center;
-  gap: 3rem;
-  background: var(--glass);
-  padding: 3.5rem;
-  border-radius: 20px;
-  border: 1px solid rgba(250,204,21,0.2);
-  flex-wrap: wrap;
-}
-.leader-img { width: 180px; height: 180px; border-radius: 20px; border: 3px solid var(--accent); object-fit: cover; }
-.leader-info { flex: 1; }
-.leader-info h3 { font-size: 1.8rem; color: var(--accent); }
-.leader-info span { display: block; margin-bottom: 1.2rem; font-weight: 600; opacity: 0.8; }
+/* Testimonials Slider */
+.swiper { padding:2rem 0; }
+.swiper-slide { background:var(--glass); border-radius:20px; padding:2rem; text-align:center; border:1px solid rgba(255,255,255,0.1); display:flex; flex-direction:column; justify-content:center; }
+.swiper-slide p { color:var(--muted); margin-bottom:1rem; font-style:italic; }
+.swiper-slide h5 { color:var(--accent); font-weight:700; }
+
+/* Leadership */
+.leadership-box { display:flex; align-items:center; gap:3rem; background:var(--glass); padding:3.5rem; border-radius:20px; border:1px solid rgba(250,204,21,0.2); flex-wrap:wrap; margin-bottom:6rem; }
+.leader-img { width:180px; height:180px; border-radius:20px; border:3px solid var(--accent); object-fit:cover; }
+.leader-info { flex:1; }
+.leader-info h3 { font-size:1.8rem; color:var(--accent); }
+.leader-info span { display:block; margin-bottom:1.2rem; font-weight:600; opacity:0.8; }
+
+/* CTA Banner */
+.cta-section { max-width:1100px; margin:4rem auto; padding:3rem 2rem; background:linear-gradient(135deg,#facc15,#f59e0b); border-radius:20px; text-align:center; color:#0f172a; }
+.cta-section a { display:inline-block; background:#0f172a; color:#fff; padding:14px 30px; border-radius:40px; font-weight:600; text-decoration:none; font-size:1.1rem; transition:0.3s; }
+.cta-section a:hover { background:#fff; color:#0f172a; transform:translateY(-5px); }
 
 /* Footer */
-footer {
-  text-align: center;
-  padding: 4rem 0;
-  border-top: 1px solid rgba(255,255,255,0.05);
-  color: var(--muted);
-}
+footer { text-align:center; padding:4rem 0; border-top:1px solid rgba(255,255,255,0.05); color:var(--muted); }
 
-@media(max-width: 768px) {
-  header { flex-direction: column; gap: 1rem; }
-  .leadership-box { text-align: center; justify-content: center; }
+@media(max-width:768px){
+  header{flex-direction:column; gap:1rem;}
+  .leadership-box{flex-direction:column; text-align:center;}
+  .grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
-
 <body>
 <div id="tsparticles"></div>
 
@@ -173,7 +106,7 @@ footer {
       <img src="A1.png" alt="Adetech Solutions">
       <h1>Adetech Solutions</h1>
     </div>
-   <nav>
+    <nav>
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="projects.html">Projects</a>
@@ -182,6 +115,7 @@ footer {
     </nav>
   </header>
 
+  <!-- Hero -->
   <section class="hero" data-aos="fade-up">
     <h2>Empowering Enterprises with <span>Smart Technology</span></h2>
     <p>Adetech Solutions delivers high-performance web systems, robust database management, and strategic IT consulting to help businesses thrive in a digital-first economy.</p>
@@ -191,6 +125,7 @@ footer {
     </div>
   </section>
 
+  <!-- Stats -->
   <section class="stats" data-aos="zoom-in">
     <div class="stat-item">
       <h4>50+</h4>
@@ -206,31 +141,73 @@ footer {
     </div>
   </section>
 
+  <!-- Solutions -->
   <section id="solutions">
     <h3 class="section-title">Enterprise <span>Solutions</span></h3>
     <div class="grid">
       <div class="card" data-aos="fade-up">
         <h4>Custom Web Systems</h4>
         <p>Responsive, scalable web architectures built with modern frameworks to ensure your business stays ahead of the curve.</p>
+        <a href="contact.html" class="card-btn">Work With Us</a>
       </div>
       <div class="card" data-aos="fade-up" data-aos-delay="100">
         <h4>Data Infrastructure</h4>
         <p>Expert database management using MySQL and Firebase, focusing on security, speed, and seamless data flow.</p>
+        <a href="contact.html" class="card-btn">Work With Us</a>
       </div>
       <div class="card" data-aos="fade-up" data-aos-delay="200">
         <h4>Strategic Consulting</h4>
         <p>Guiding businesses through digital transformation with system analysis and professional advisory services.</p>
+        <a href="contact.html" class="card-btn">Work With Us</a>
       </div>
     </div>
   </section>
 
-  <section id="about" data-aos="fade-right">
-    <h3 class="section-title">Our <span>Story</span></h3>
-    <div style="background: var(--glass); padding: 3rem; border-radius: 20px; line-height: 1.8; text-align: center;">
-      <p>Founded on the principles of efficiency and innovation, Adetech Solutions bridges the gap between complex computer science and practical business applications. With a foundation in operational management and technical mastery, we build systems that don't just work—they excel.</p>
+  <!-- Projects / Portfolio -->
+  <section id="projects">
+    <h3 class="section-title">Our <span>Portfolio</span></h3>
+    <div class="grid">
+      <div class="card" data-aos="fade-up">
+        <h4>PrimeStay Suites Portal</h4>
+        <p>Increased bookings by <strong>40%</strong> through a high-conversion booking engine and responsive web design.</p>
+        <a href="https://primestaysuites.co.ke/#booking" target="_blank" class="card-btn">View Project</a>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="100">
+        <h4>Corporate Branding</h4>
+        <p>Enhanced client brand recognition and engagement by <strong>35%</strong> through strategic visual identity development.</p>
+        <a href="contact.html" class="card-btn">View Project</a>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="200">
+        <h4>Data Management System</h4>
+        <p>Optimized operational efficiency by <strong>65%</strong> with secure automated database workflows.</p>
+        <a href="contact.html" class="card-btn">View Project</a>
+      </div>
     </div>
   </section>
 
+  <!-- Testimonials -->
+  <section id="testimonials">
+    <h3 class="section-title">What Our <span>Clients Say</span></h3>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <p>"Adetech Solutions transformed our website and increased our bookings remarkably. Professional and responsive team!"</p>
+          <h5>- Jane Mwangi, PrimeStay Suites</h5>
+        </div>
+        <div class="swiper-slide">
+          <p>"The branding work by Adetech helped our business gain trust and recognition in the market."</p>
+          <h5>- Peter Odhiambo, Corporate Client</h5>
+        </div>
+        <div class="swiper-slide">
+          <p>"Their system engineering saved us significant time and improved operational efficiency."</p>
+          <h5>- Samuel Kariuki, Tech Startup</h5>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+  <!-- Leadership -->
   <section id="leadership">
     <h3 class="section-title">Company <span>Leadership</span></h3>
     <div class="leadership-box" data-aos="fade-up">
@@ -238,11 +215,21 @@ footer {
       <div class="leader-info">
         <h3>Elvis Adesh</h3>
         <span>Founder & Technical Director</span>
-        <p style="color: var(--muted); line-height: 1.7;">
+        <p style="color: var(--muted); line-height:1.7;">
           A Computer Science expert with a background as an operations assistant at Litehill System. Elvis combines rigorous technical training with operational insights to lead the Adetech team in delivering superior digital infrastructure.
         </p>
       </div>
     </div>
+  </section>
+
+  <!-- WhatsApp CTA -->
+  <section class="cta-section" data-aos="zoom-in">
+    <h2 style="margin-bottom:1rem;">Have a Project in Mind?</h2>
+    <p style="max-width:700px;margin:0 auto 2rem auto;font-weight:500;">
+      Let’s build something powerful together. Contact Adetech Solution today for professional web, branding, networking, or system development services.
+    </p>
+    <a href="https://wa.me/254703107121" target="_blank">Chat With Us on WhatsApp</a>
+    <p style="margin-top:1rem;font-size:.9rem;">Fast response • Professional support • Affordable pricing</p>
   </section>
 
   <footer>
@@ -252,23 +239,29 @@ footer {
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-AOS.init({ duration: 1000, once: true });
+AOS.init({ duration:1000, once:true });
 document.getElementById("year").textContent = new Date().getFullYear();
 
 tsParticles.load("tsparticles", {
   fpsLimit: 60,
   particles: {
-    number: { value: 50 },
-    color: { value: "#facc15" },
-    shape: { type: "circle" },
-    opacity: { value: 0.4 },
-    size: { value: { min: 1, max: 3 } },
-    links: { enable: true, distance: 150, color: "#facc15", opacity: 0.2, width: 1 },
-    move: { enable: true, speed: 0.8, random: true }
+    number:{value:50},
+    color:{value:"#facc15"},
+    shape:{type:"circle"},
+    opacity:{value:0.4},
+    size:{value:{min:1,max:3}},
+    links:{enable:true,distance:150,color:"#facc15",opacity:0.2,width:1},
+    move:{enable:true,speed:0.8,random:true}
   }
+});
+
+// Swiper
+var swiper = new Swiper(".mySwiper", {
+  loop:true,
+  pagination:{el:".swiper-pagination",clickable:true},
+  autoplay:{delay:5000,disableOnInteraction:false},
 });
 </script>
 
 </body>
 </html>
-
