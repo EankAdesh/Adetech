@@ -128,6 +128,49 @@ footer { text-align:center; padding:4rem 0; border-top:1px solid rgba(255,255,25
   .leadership-box{text-align:center; justify-content:center;} 
   .testimonials{flex-wrap:nowrap;} 
 }
+  /* Mobile Menu Button */
+.menu-toggle{
+  display:none;
+  font-size:28px;
+  cursor:pointer;
+}
+
+/* Sticky Header */
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+/* Mobile Navigation */
+@media(max-width:768px){
+
+  nav{
+    position:absolute;
+    top:80px;
+    right:0;
+    background:#0f172a;
+    width:200px;
+    display:none;
+    flex-direction:column;
+    padding:20px;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,0.1);
+  }
+
+  nav a{
+    margin:10px 0;
+  }
+
+  nav.show{
+    display:flex;
+  }
+
+  .menu-toggle{
+    display:block;
+  }
+
+}
 </style>
 </head>
 <body>
