@@ -171,6 +171,30 @@ header{
   }
 
 }
+  /* WhatsApp Floating Button */
+.whatsapp-float{
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  background:#25D366;
+  color:white;
+  font-size:26px;
+  width:60px;
+  height:60px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  text-decoration:none;
+  box-shadow:0 8px 20px rgba(0,0,0,0.3);
+  z-index:999;
+  transition:all .3s;
+}
+
+.whatsapp-float:hover{
+  transform:scale(1.1);
+  box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
 </style>
 </head>
 <body>
@@ -338,6 +362,8 @@ menuToggle.addEventListener("click", () => {
   nav.classList.toggle("show");
 });
 </script>
-
+<a href="https://wa.me/254703107121" class="whatsapp-float" target="_blank">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="30">
+</a>
 </body>
 </html>
