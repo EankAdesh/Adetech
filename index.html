@@ -52,7 +52,28 @@ nav a:hover, nav a.active { color:var(--accent); }
 .btn { padding:1rem 2.5rem; border-radius:50px; text-decoration:none; font-weight:700; transition:.3s, transform .3s; }
 .btn-primary { background:var(--accent); color:var(--bg); box-shadow:0 5px 15px rgba(250,204,21,0.3); }
 .btn-secondary { border:2px solid var(--accent); color:var(--accent); }
-.btn:hover { transform:translateY(-5px); box-shadow:0 10px 25px rgba(250,204,21,0.3); }
+.btn:hover { transform:translateY(-5px); box-shadow:0 10px 25px rgba(250,204,21,0.3); }.hero-features{
+  margin-top:30px;
+  display:flex;
+  gap:25px;
+  flex-wrap:wrap;
+  justify-content:center;
+  font-size:0.95rem;
+  color:var(--muted);
+}
+
+.hero-features span{
+  background:rgba(255,255,255,0.05);
+  padding:8px 16px;
+  border-radius:20px;
+  border:1px solid var(--glass-border);
+  transition:.3s;
+}
+
+.hero-features span:hover{
+  color:var(--accent);
+  border-color:var(--accent);
+}
 
 /* Section Styling */
 section { padding:6rem 0; }
