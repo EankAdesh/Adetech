@@ -177,12 +177,12 @@ footer { text-align: center; padding: 3rem; color: var(--muted); border-top: 1px
     </div>
 
     <div class="social-links">
-      <a href="https://wa.me/254743736557" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-      <a href="https://github.com/EankAdesh" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
-      <a href="https://www.facebook.com/Elvis Adesh" target="_blank" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
-      <a href="https://www.instagram.com/ITGuy" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-      <a href="https://www.tiktok.com/@techs_solution" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-    </div>
+  <a href="https://wa.me/254743736557" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+  <a href="https://github.com/EankAdesh" target="_blank"><i class="fa-brands fa-github"></i></a>
+  <a href="https://www.facebook.com/elvisadesh" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+  <a href="https://www.instagram.com/ITGuy" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+  <a href="https://www.tiktok.com/@techs_solution" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+</div>
   </div>
 
   <div class="contact-form-box" data-aos="fade-left">
@@ -240,6 +240,7 @@ footer { text-align: center; padding: 3rem; color: var(--muted); border-top: 1px
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
 AOS.init({ duration: 1000, once: true });
+
 document.getElementById("year").textContent = new Date().getFullYear();
 
 const form = document.getElementById("contact-form");
@@ -248,12 +249,18 @@ const popupText = document.getElementById("popup-text");
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
+
   const formData = new FormData(form);
   const btn = form.querySelector('.submit-btn');
-  
-  btn.innerHTML = 'Processing...';
+
+  const originalBtn = btn.innerHTML;
+
+  btn.innerHTML = 'Sending...';
   btn.style.opacity = '0.7';
-  btn.style.pointerEvents = 'none';
+  btn.disabled = true;
+
+  let success = false;
+  let message = "";
 
   try {
     const response = await fetch(form.action, {
@@ -263,20 +270,23 @@ form.addEventListener("submit", async (e) => {
     });
 
     if (response.ok) {
-      popupText.textContent = "Message Received!";
+      success = true;
+      message = "Message Received!";
       form.reset();
     } else {
-      popupText.textContent = "Submission Failed";
+      message = "Submission Failed. Try again.";
     }
-  } catch {
-    popupText.textContent = "Network Error";
+  } catch (err) {
+    message = "Network Error. Check connection.";
   }
 
-  btn.innerHTML = '<span>Submit Request</span> <i class="fa-solid fa-paper-plane"></i>';
-  btn.style.opacity = '1';
-  btn.style.pointerEvents = 'all';
+  popupText.textContent = message;
   popup.style.display = "flex";
-  
+
+  btn.innerHTML = originalBtn;
+  btn.style.opacity = '1';
+  btn.disabled = false;
+
   setTimeout(() => {
     popup.style.display = "none";
   }, 4000);
